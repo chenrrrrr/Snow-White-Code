@@ -49,3 +49,32 @@ function countdown(startNum, endNum, interval) {
 // 调用
 countdown(5, 0, 1000);
 ```
+
+## 范围随机数
+
+```javascript
+function getRandomRangeNum(min, max) {
+  return min + Math.floor(Math.random() * (max - min));
+}
+```
+
+## 随机渐变背景
+
+```javascript
+function getRandomRangeNum(min, max) {
+  return min + Math.floor(Math.random() * (max - min));
+}
+
+function setRandomBg(el) {
+  var left = getRandomRangeNum(0, 255);
+  var bottom = getRandomRangeNum(0, 255);
+  var css = [
+    'linear-gradient(to left bottom,hsl(',
+    left,
+    ', 100%, 85%) 0%,hsl(',
+    bottom,
+    ', 100%, 85%) 100%)'
+  ];
+  el.style.background = css.join('');
+}
+```
