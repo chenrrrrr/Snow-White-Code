@@ -4,3 +4,4 @@
   * [ES6 标准入门 - 第三版](/es6v3.md)
   * [工具类](/util.md)
   * [思考](/think.md)
+  * [mongodb](/mongo.md)
