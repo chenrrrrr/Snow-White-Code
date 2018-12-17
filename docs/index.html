@@ -20,7 +20,14 @@
       window.$docsify = {
         search: {
           maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-          paths: ['/jsv3'],
+          paths: [
+            '/jsv3',
+            '/es6v3',
+            '/env',
+            '/mongo',
+            '/think',
+            '/util',
+          ],
           placeholder: '搜索',
           depth: 6,
           placeholder: {
@@ -42,10 +49,5 @@
     </script>
     <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
     <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
-    <script>
-      if (typeof navigator.serviceWorker !== 'undefined') {
-        navigator.serviceWorker.register('sw.js');
-      }
-    </script>
   </body>
 </html>
