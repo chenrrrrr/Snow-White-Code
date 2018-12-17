@@ -5,3 +5,4 @@
   * [工具类](/util.md)
   * [思考](/think.md)
   * [mongodb](/mongo.md)
+  * [环境配置](/env.md)
