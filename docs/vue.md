@@ -51,3 +51,57 @@ module.exports = {
 // 引入/src/assets/css/leftbar.stylus
 @import '~assets/css/leftbar.styl'
 ```
+
+## v-on传参($event)
+```javascript
+<tempalte>
+   <button @blur="leave($event)">点击</button>
+</template>
+<script>
+export default {
+  methods:{
+    leave(e) {
+      console.log(e)
+      // 当前点击的元素
+      e.target
+      // 绑定事件的元素
+      e.currentTarget
+      // 获得点击元素的前一个元素
+      e.currentTarget.previousElementSibling.innerHTML
+      // 获得点击元素的第一个子元素
+      e.currentTarget.firstElementChild
+      // 获得点击元素的下一个元素
+      e.currentTarget.nextElementSibling
+      // 获得点击元素中id为string的元素
+      e.currentTarget.getElementById("string")
+      // 获得点击元素的string属性
+      e.currentTarget.getAttributeNode('string')
+      // 获得点击元素的父级元素
+      e.currentTarget.parentElement
+      // 获得点击元素的前一个元素的第一个子元素的HTML值
+      e.currentTarget.previousElementSibling.firstElementChild.innerHTML
+    },
+  }
+}
+```
+
+## 路由跳转
+
+this.$router.push()
+跳转到不同的url，但这个方法会向history栈添加一个记录，点击后退会返回到上一个页面
+```javascript
+// 字符串
+router.push('home')
+// 对象
+router.push({path:'home'})
+// 命名路由
+router.push({name:'user',params:{userId:123}})
+// 带查询参数
+router.push({path:'register',query:{plan:'private'}})
+```
+
+this.$router.replace()
+同样是跳转到指定的url，但是这个方法不会向history里面添加新的记录，点击返回，会跳转到上上一个页面。上一个记录是不存在的
+
+this.$router.go(n)
+相对于当前页面向前或向后跳转多少个页面,类似 window.history.go(n)。n可为正数可为负数。正数返回上一个页面

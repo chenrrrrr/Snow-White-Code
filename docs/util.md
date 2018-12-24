@@ -78,3 +78,26 @@ function setRandomBg(el) {
   el.style.background = css.join('');
 }
 ```
+## ul下li居中
+
+```html
+<!--外层包个div/section block元素 -->
+<div>
+  <ul class="clearfix">
+    <li>1</li>
+    <li>2</li>
+  </ul>
+</div>
+```
+```css
+div{
+  text-align: center
+}
+ul{
+  display: inline-block
+}
+li{
+  display: inline
+  float: left
+}
+```
