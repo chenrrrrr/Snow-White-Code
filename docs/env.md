@@ -38,6 +38,38 @@ C:\Program Files\MySQL\MySQL Server 5.7
 ;%MYSQL_HOME%\bin
 ```
 
+## OSX配置HomeBrew
+
+1.安装，SSR搞
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+2.替换Homebrew Bottles源
+
+```bash
+echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.bash_profile
+source ~/.bash_profile
+```
+3.替换Homebrew镜像仓库
+```bash
+cd "$(brew --repo)"    
+git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git 
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+```
+
+## OSX安装git
+```bash
+brew install git
+```
+
+## OSX安装oh-my-zsh
+```bash
+brew install zsh
+chsh -s /usr/local/bin/zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
 ## vscode插件
   - open in browser：浏览器打开HTML预览
   - HTML Snippets：H5代码片段
