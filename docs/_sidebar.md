@@ -9,3 +9,4 @@
   * [vue](/vue.md)
   * [wepy](/wepy.md)
   * [git](/git.md)
+  * [bash](/bash.md)
