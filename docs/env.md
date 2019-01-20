@@ -70,6 +70,13 @@ chsh -s /usr/local/bin/zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
+## mojava字体发虚
+
+跑完重新登录用户
+```bash
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO      ## 切换为YES则恢复Mojave默认的模式
+```
+
 ## vscode插件
   - open in browser：浏览器打开HTML预览
   - HTML Snippets：H5代码片段
