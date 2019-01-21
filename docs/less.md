@@ -88,3 +88,30 @@ pre { .wrap }
 @var: `"hello".toUpperCase() + '!'`;
 @height: `document.body.clientHeight`;
 ```
+
+## 父选择器
+@只能代表父元素，不能代表父亲的父辈元素，施加改性类或伪类
+```css
+a {
+  color: blue;
+  &:hover {
+    color: green;
+  }
+}
+```
+
+## 重复父类名
+```css
+.button {
+  &-ok {
+    background-image: url("ok.png");
+  }
+  &-cancel {
+    background-image: url("cancel.png");
+  }
+
+  &-custom {
+    background-image: url("custom.png");
+  }
+}
+```
