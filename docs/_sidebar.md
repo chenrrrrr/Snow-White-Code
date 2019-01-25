@@ -12,3 +12,4 @@
   * [git](/git.md)
   * [bash](/bash.md)
   * [less](/less.md)
+  * [nginx](/nginx.md)
