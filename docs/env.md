@@ -77,6 +77,53 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO      ## 切换为YES则恢复Mojave默认的模式
 ```
 
+## OSX安装Mysql5.7
+
+1.搜索brew里mysql版本
+```bash
+brew search mysql
+```
+2.安装
+```bash
+brew install mysql@5.7
+```
+3.设置开机启动
+```bash
+ln -sfv /usr/local/opt/mysql@5.7/*.plist ~/Library/LaunchAgents
+```
+4.启动mysql，如果报"command not found: mysql.server"，需要配置环境变量
+```bash
+mysql.server start
+```
+5.配置环境变量，找到mysql安装路径，因为是brew安装的，所以在Cellar中
+```bash
+cd ~
+open .bash_profile
+# 添加
+export PATH=$PATH:/usr/local/Cellar/mysql@5.7/5.7.24/bin
+# 生效
+source .bash_profile
+```
+6.启动Mysql服务
+```bash
+mysql.server start
+```
+7.配置root用户密码
+```bash
+mysql -uroot
+use mysql
+update user set authentication_string = password('root') where User='root';
+flush privileges;
+# 如果操作过程中报：ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+mysql.server start --skip-grant-tables
+```
+8.结束，登录
+```bash
+mysql -u root -p
+root
+```
+
+
 ## vscode插件
   - open in browser：浏览器打开HTML预览
   - HTML Snippets：H5代码片段
