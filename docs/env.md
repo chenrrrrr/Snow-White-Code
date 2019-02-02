@@ -108,8 +108,8 @@ source .bash_profile
 ```bash
 mysql.server start
 # 如果出现 zsh: command not found: mysql
-cd /usr/local/bin
-ln -fs /usr/local/mysql/bin/mysql mysql
+open ~/.zshrc
+export PATH=${PATH}:/usr/local/Cellar/mysql@5.7/5.7.24/bin
 ```
 7.配置root用户密码
 ```bash
