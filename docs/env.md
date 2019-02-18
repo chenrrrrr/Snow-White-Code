@@ -126,6 +126,21 @@ mysql -u root -p
 root
 ```
 
+## OSX配置vscode右键打开
+
+1.Launchpad>其他>自动操作
+2.左侧找到`实用工具`，双击`运行shell脚本`
+3.右侧弹出面板，`shell:/bin/bash`,`传递输入:作为自变量`
+文本域输入
+
+```shell
+for f in "$@"
+do
+    open -a "Visual Studio Code" "$f"
+done
+```
+4.`command+s`，将服务存储位`Open With VSCode`
+
 
 ## vscode插件
   - open in browser：浏览器打开HTML预览
