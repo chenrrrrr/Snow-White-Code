@@ -60,6 +60,43 @@ WePY中的组件都是静态组件，是以组件ID作为唯一标识的，每�
 </script>
 ```
 
-## 父子组件双向绑定
+## e.target & e.currentTarget
 
+    - `e.target`指向触发事件监听的对象
+    - `e.currentTarget`指向添加监听事件的对象
+
+点击一个cell，考虑到用户操作精确度问题，通常我们是给整个cell都绑定点击事件，如果是cell是通过`vm`循环出的，通常做法如下
+```vue
+<view class="cell" data-index="{{index}}" wx:for="{{cellList}}" wx:for-item="item" wx:key="index" wx:for-index="index" @tap="handleClick">
+    <label>{{item.alias}}</label>
+    <label>></label>
+</view>
 ```
+``less
+.cell{
+    display:flex;
+    justify-content:space-between;
+}
+```
+```javascript
+data:{
+    cellList:[
+        {
+            alias:'最新消息',
+        },
+        {
+            alias:'我的钱包',
+        }
+    ]
+}
+methods:{
+    handleClick(e){
+        console.log(`${e.currentTarget.dataset.index} ----  ${e.target.dataset.index}`)
+    }
+}
+```
+
+如果是`e.target.dataset.index`，当点击到`label:first-child`元素的时候，会打印`undifined`，而`e.currentTarget.dataset.index`则返回对应的`dataset.index`，也就实现了捕获
+
+MDN中对target的解释为，一个触发事件的对象的引用， 当事件处理程序在事件的冒泡或捕获阶段被调用时，而对于currentTarget，它指的是当事件遍历DOM时，标识事件的当前目标。它总是引用事件处理程序附加到的元素，而不是event.target，它标识事件发生的元素
+
