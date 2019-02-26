@@ -101,3 +101,11 @@ li{
   float: left
 }
 ```
+
+## 获取当前月的天数
+
+```javascript
+function getCurMonthDays(){
+  return new Date(new Date().getFullYear(), new Date().getMonth()+1, 0).getDate();
+}
+```
