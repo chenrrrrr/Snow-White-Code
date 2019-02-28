@@ -159,3 +159,11 @@ done
   - Prettier：代码格式化工具`ctrl+shift+p=>format`，自动格式化
   - vetur：vue框架所需
   - JavaScript (ES6) code snippets：ES6代码提示
+
+## windows开机启动
+
+```bash
+win+R
+shell:startup
+# 把需要开机启动的程序创建快捷方式，拖进去
+```
