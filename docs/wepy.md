@@ -100,3 +100,10 @@ methods:{
 
 MDN中对target的解释为，一个触发事件的对象的引用， 当事件处理程序在事件的冒泡或捕获阶段被调用时，而对于currentTarget，它指的是当事件遍历DOM时，标识事件的当前目标。它总是引用事件处理程序附加到的元素，而不是event.target，它标识事件发生的元素
 
+## 全局消息提示
+
+项目框架选用wepy，需要跨页面做全局的消息提醒，已经显示过的消息，跨页面时，不显示，思路
+ - `app.wpy > globalData`注入全局消息对象例如`msgList`
+ - `mixins` 加入对象`msgListAcceptor = this.$parent.globalData.msgList`
+ - 页面`wx:for={{msgListAcceptor}} wx:for-item="item"`
+ - 根据`item`里面的属性，例如`hasShow`判断是否显示过了，给个样式`show`控制显示/隐藏，`class="{{item.hasShow ? 'show' : ''}}"`
