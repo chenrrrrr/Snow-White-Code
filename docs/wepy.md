@@ -60,19 +60,19 @@ WePY中的组件都是静态组件，是以组件ID作为唯一标识的，每�
 </script>
 ```
 
-## e.target & e.currentTarget
+## 小程序点击 e.target & e.currentTarget
 
     - `e.target`指向触发事件监听的对象
     - `e.currentTarget`指向添加监听事件的对象
 
 点击一个cell，考虑到用户操作精确度问题，通常我们是给整个cell都绑定点击事件，如果是cell是通过`vm`循环出的，通常做法如下
-```vue
+```html
 <view class="cell" data-index="{{index}}" wx:for="{{cellList}}" wx:for-item="item" wx:key="index" wx:for-index="index" @tap="handleClick">
     <label>{{item.alias}}</label>
     <label>></label>
 </view>
 ```
-``less
+```less
 .cell{
     display:flex;
     justify-content:space-between;
