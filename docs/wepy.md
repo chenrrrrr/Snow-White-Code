@@ -58,27 +58,27 @@ export default class Index extends wepy.component {
 </script>
 ```
 
-## e.target & e.currentTarget
+## 小程序点击 e.target & e.currentTarget
 
     - `e.target`指向触发事件监听的对象
     - `e.currentTarget`指向添加监听事件的对象
 
 点击一个 cell，考虑到用户操作精确度问题，通常我们是给整个 cell 都绑定点击事件，如果是 cell 是通过`vm`循环出的，通常做法如下
 
-```vue
+```html
 <view class="cell" data-index="{{index}}" wx:for="{{cellList}}" wx:for-item="item" wx:key="index" wx:for-index="index" @tap="handleClick">
-    <label>{{item.alias}}</label>
-    <label>></label>
+  <label>{{item.alias}}</label>
+  <label>></label>
 </view>
 ```
 
-``less
-.cell{
-display:flex;
-justify-content:space-between;
+```less
+.cell {
+  display: flex;
+  justify-content: space-between;
 }
+```
 
-````
 ```javascript
 data:{
     cellList:[
@@ -95,7 +95,7 @@ methods:{
         console.log(`${e.currentTarget.dataset.index} ----  ${e.target.dataset.index}`)
     }
 }
-````
+```
 
 如果是`e.target.dataset.index`，当点击到`label:first-child`元素的时候，会打印`undifined`，而`e.currentTarget.dataset.index`则返回对应的`dataset.index`，也就实现了捕获
 
