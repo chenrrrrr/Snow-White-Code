@@ -117,3 +117,48 @@ MDN 中对 target 的解释为，一个触发事件的对象的引用， 当事�
 - 可以通过使用`.sync`修饰符来达到父组件数据绑定至子组件的效果
 - 也可以通过设置子组件`props`的`twoWay: true`来达到子组件数据绑定至父组件的效果
 - 父使用`.sync`修饰符，子组件`props`中添加的`twoWay: true`时，就可以实现数据的双向绑定了。
+
+## 滚动弹出层(穿透)解决方案
+
+// 全局 css
+
+```css
+.noscroll {
+  height: 100%;
+  overflow: hidden;
+}
+```
+
+// 调用者
+
+```html
+<scroll-view scroll-y class="page-wrapper {{isShow?'noscroll':''}}">
+  <view class="list-item>
+    ...
+  </view>
+</scroll-view>
+<!-- 调用popup组件 -->
+<popup :isShow.sync="isShow"></popup>
+```
+
+// popup 组件 html
+
+```js
+<template>
+  <view class="mask"><!-- 灰色蒙层 -->
+    <view class="content"><!-- 或者slot -->
+      ...
+    </view>
+  </view>
+</template>
+
+export default class Index extends wepy.component {
+  props = {
+    isShow: {
+      type: Boolean,
+      default: false,
+      twoWay: true
+    }
+  }
+}
+```
