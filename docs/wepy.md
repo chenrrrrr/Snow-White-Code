@@ -120,8 +120,7 @@ MDN 中对 target 的解释为，一个触发事件的对象的引用， 当事�
 
 ## 滚动弹出层(穿透)解决方案
 
-// 全局 css
-
+`common.css`
 ```css
 .noscroll {
   height: 100%;
@@ -129,8 +128,7 @@ MDN 中对 target 的解释为，一个触发事件的对象的引用， 当事�
 }
 ```
 
-// 调用者
-
+`调用.wpy`
 ```html
 <scroll-view scroll-y class="page-wrapper {{isShow?'noscroll':''}}">
   <view class="list-item>
@@ -141,8 +139,7 @@ MDN 中对 target 的解释为，一个触发事件的对象的引用， 当事�
 <popup :isShow.sync="isShow"></popup>
 ```
 
-// popup 组件 html
-
+`popup.wpy`
 ```js
 <template>
   <view class="mask"><!-- 灰色蒙层 -->
