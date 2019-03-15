@@ -202,28 +202,32 @@ shell:startup
 
 ```json
 {
-  "workbench.startupEditor": "newUntitledFile",
   "workbench.iconTheme": "vscode-icons",
   "workbench.colorTheme": "One Dark Pro",
-  "editor.wordWrapColumn": 999,
+  "workbench.editor.enablePreview": false,
+  "editor.fontFamily": "Consolas, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 16,
+  "editor.tabSize": 2,
+  "editor.lineHeight": 24,
+  "git.confirmSync": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,
-  "editor.fontSize": 15,
-  "editor.tabSize": 2,
-  "workbench.editor.enablePreview": false,
-  "editor.lineHeight": 22,
+  "files.associations": {
+    "*.ejs": "html",
+    "*.wxss": "css"
+  },
   // emmet
   "emmet.triggerExpansionOnTab": true,
   // 强制单引号
   "prettier.singleQuote": true,
-  // prettier换行宽度
-  "prettier.printWidth": 999,
   // 尽可能控制尾随逗号的打印
   "prettier.trailingComma": "all",
   // 开启 eslint 支持
   "prettier.eslintIntegration": true,
-  // 保存时自动fix  "eslint.autoFixOnSave": true,
-
+  // ESLINT 保存时自动fix
+  "eslint.autoFixOnSave": true,
+  // 换行宽度
+  "prettier.printWidth": 999,
   // 使用插件格式化 html
   "vetur.format.defaultFormatter.html": "js-beautify-html",
   // 格式化插件的配置
@@ -232,7 +236,6 @@ shell:startup
       // 属性强制折行对齐
       "wrap_attributes": "force-aligned"
     }
-  },
-  "git.confirmSync": false
+  }
 }
 ```
