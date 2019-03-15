@@ -167,3 +167,15 @@ export default class Index extends wepy.component {
   }
 }
 ```
+
+## wpy 模板快速生成
+
+`ctrl+shift+p` => `配置用户代码片段` => `vue.json` 加入
+
+```js
+  "Print to console": {
+    "prefix": "wpy",
+    "body": ["<!-- $0 -->", "<style lang='less' scoped>", "</style>", "<template>", "<view class='page-wrapper'>", "index", "</view>", "</template>", "", "<script>", "import wepy from 'wepy'", "export default class Index extends wepy.page {", "config = {", "navigationBarTitleText: 'index'", "}", "components = {}", "data = {}", "computed = {}", "methods = {}", "events = {}", "initFun() {}", "onLoad() {", "this.initFun()", "}", "}", "</script>", ""],
+    "description": "Log output to console"
+  }
+```
