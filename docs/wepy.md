@@ -149,11 +149,12 @@ MDN 中对 target 的解释为，一个触发事件的对象的引用， 当事�
 `popup.wpy`
 
 ```js
+// 样式style省略
 <template>
   <view class="mask"><!-- 灰色蒙层 -->
-    <view class="content"><!-- 或者slot -->
+    <slot name="popup-content"><!-- 或者slot -->
       ...
-    </view>
+    </slot>
   </view>
 </template>
 
@@ -178,4 +179,136 @@ export default class Index extends wepy.component {
     "body": ["<!-- $0 -->", "<style lang='less' scoped>", "</style>", "<template>", "<view class='page-wrapper'>", "index", "</view>", "</template>", "", "<script>", "import wepy from 'wepy'", "export default class Index extends wepy.page {", "config = {", "navigationBarTitleText: 'index'", "}", "components = {}", "data = {}", "computed = {}", "methods = {}", "events = {}", "initFun() {}", "onLoad() {", "this.initFun()", "}", "}", "</script>", ""],
     "description": "Log output to console"
   }
+```
+
+## common.less
+
+```less
+/* --------- page --------- */
+page {
+  font-size: 14px;
+  height: 100%;
+  .page-wrapper {
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+  }
+}
+
+/* --------- hover-class:"hover" --------- */
+.hover {
+  background: rgba(121, 121, 121, 0.1) !important;
+}
+
+/* --------- 超出省略 ... --------- */
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --------- bg color --------- */
+
+@blue: #1e9fff; // tech-bgc
+@black: #393d49; // nav
+@mint: #5fb878; // isSelected
+@teal: #009688; // button decoration
+@orange: #ffb800; // notice
+@red: #ff5722; // awesome
+@blue-1: #01aaed; // text、link
+@bar: #2f4056; // footer、siderbar
+
+/* --------- grey series --------- */
+
+@grey: #c2c2c2;
+@grey-1: #d2d2d2;
+@grey-2: #dddddd;
+@grey-3: #e2e2e2;
+@grey-4: #eeeeee;
+@grey-5: #f2f2f2;
+@grey-6: #f0f0f0;
+
+/* --------- ellipsis --------- */
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --------- flex --------- */
+
+.flex(@jc:center,@ai:center) {
+  display: flex;
+  justify-content: @jc;
+  align-items: @ai;
+}
+
+/* --------- padding --------- */
+.pd(@a,@b,@c,@d) {
+  padding: @arguments;
+}
+
+/* --------- margin --------- */
+.mar(@a,@b,@c,@d) {
+  margin: @arguments;
+}
+
+/* --------- position --------- */
+
+.pr() {
+  position: relative;
+}
+
+.pa() {
+  position: absolute;
+}
+
+.pcc(@l,@t,@style:absolute) {
+  position: @style;
+  top: 50%;
+  left: 50%;
+  margin-left: -@l / 2;
+  margin-top: -@t / 2;
+}
+/* --------- width-height --------- */
+
+.wh(@w:auto,@h:auto) {
+  width: @w;
+  height: @h;
+}
+
+.lh(@h:1) {
+  line-height: @h;
+}
+
+/* --------- font --------- */
+
+.font(@fz:14px,@color:#333,@align:left) {
+  font-size: @fz;
+  color: @color;
+  text-align: @align;
+  .lh();
+}
+
+/* --------- bg --------- */
+
+.bg(@color:@grey-3) {
+  background: @color;
+}
+
+/* --------- br --------- */
+
+.br(@br:2px) {
+  border-radius: @br;
+}
+
+/* --------- button --------- */
+
+.btn-lg {
+}
+
+.btn-md {
+}
+
+.btn-sm {
+}
 ```
