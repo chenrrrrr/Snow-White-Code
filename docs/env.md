@@ -218,6 +218,12 @@ shell:startup
   },
   // emmet
   "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "vue": "html",
+    "wpy": "html",
+    "ftl": "html"
+  },
   // 强制单引号
   "prettier.singleQuote": true,
   // 尽可能控制尾随逗号的打印
@@ -227,7 +233,7 @@ shell:startup
   // ESLINT 保存时自动fix
   "eslint.autoFixOnSave": true,
   // 换行宽度
-  "prettier.printWidth": 999,
+  "prettier.printWidth": 80,
   // 使用插件格式化 html
   "vetur.format.defaultFormatter.html": "js-beautify-html",
   // 格式化插件的配置
@@ -236,6 +242,35 @@ shell:startup
       // 属性强制折行对齐
       "wrap_attributes": "force-aligned"
     }
+  },
+  // # java配置
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "editor.suggestSelection": "first",
+  // 自动override
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  // jdk 安裝路徑
+  "java.home": "C:/Program Files/Java/jdk1.8.0_201",
+  // mvn 路径
+  "maven.executable.path": "D:/apache-maven-3.6.0/bin/mvn",
+  // maven 配置 推荐阿里仓库
+  "java.configuration.maven.userSettings": "D:/apache-maven-3.6.0/conf/settings.xml",
+  "maven.terminal.customEnv": [
+    {
+      "environmentVariable": "JAVA_HOME",
+      "value": "C:/Program Files/Java/jdk1.8.0_201"
+    }
+  ],
+  "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"C:\\Users\\Administrator\\.vscode\\extensions\\gabrielbb.vscode-lombok-0.9.7/server/lombok.jar\" -Xbootclasspath/a:\"C:\\Users\\Administrator\\.vscode\\extensions\\gabrielbb.vscode-lombok-0.9.7/server/lombok.jar\"",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "search.location": "panel",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
+
 ```
