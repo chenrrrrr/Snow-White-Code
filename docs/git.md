@@ -1,3 +1,17 @@
+## git clone sock5提速
+
+>前提条件是开了扶墙工具
+
+```bash
+# 我的v2ray sock5端口默认为1081
+git config --global http.proxy 'socks5://127.0.0.1:1081'
+git config --global https.proxy 'socks5://127.0.0.1:1081'
+# 清除
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+# git clone 拉取方式选择 http/https(默认会让你输入账号密码，比较蛋疼)，不要选择ssl拉取
+```
+
 ## 生成 ssh key
 
 ```bash
