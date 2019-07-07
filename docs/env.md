@@ -34,7 +34,13 @@ brew install git
 
 ```bash
 brew install zsh
+# 解决 chsh: /usr/local/bin/zsh: non-standard shell 的错误
+sudo vi /etc/shells
+# 添加
+/usr/local/bin/zsh
+# 切换shell路径
 chsh -s /usr/local/bin/zsh
+# 安装shell 脚本
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
