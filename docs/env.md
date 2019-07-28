@@ -2,26 +2,42 @@
 
 #### OSX 配置 HomeBrew
 
-1.安装，SSR 搞
+1.安装，如果你挂了代理，并且配置了http、https走代理
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-2.替换 Homebrew Bottles 源
+2.墙内用户，替换 Homebrew Bottles 源
 
 ```bash
-echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.bash_profile
-source ~/.bash_profile
+# cd到系统根目录
+cd ~
+# 下载脚本
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install >> brew_install
+# 编辑brew_install文件，修改 BREW_REPO = "git://mirrors.ustc.edu.cn/brew.git".freeze
+sudo open .
+# 安装
+/usr/bin/ruby ~/brew_install 
 ```
+
+
 
 3.替换 Homebrew 镜像仓库
 
 ```bash
-cd "$(brew --repo)"   
+# 替换homebrew默认源
+cd "$(brew --repo)"
 git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git 
+# 替换homebrew-core源
 cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
 git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+# brew 更新
+brew update
+# 设置 bintray镜像
+echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.bash_profile
+# 更新bash_profile
+source ~/.bash_profile
 ```
 
 #### OSX 安装 git
@@ -33,14 +49,13 @@ brew install git
 #### OSX 安装 oh-my-zsh
 
 ```bash
+# 查看安装的shell
+cat /etc/shells
+# 使用 brew 更新 zsh
 brew install zsh
-# 解决 chsh: /usr/local/bin/zsh: non-standard shell 的错误
-sudo vi /etc/shells
-# 添加
-/usr/local/bin/zsh
-# 切换shell路径
-chsh -s /usr/local/bin/zsh
-# 安装shell 脚本
+# 切换为 zsh
+chsh -s /bin/zsh
+# 安装 oh my zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
